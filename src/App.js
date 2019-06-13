@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import DogsList from './components/DogsList'
+
+import {Route} from 'react-router-dom';
+import DogsListContainer from './components/DogsList';
+import DogBreedImagesContainer from './components/DogBreedImagesContainer';
+
 
 class App extends Component {
 
   render() {
     return (
       <div className="App">
-       <main><DogsList /></main>
+       <main><Route exact path="/" component={DogsListContainer} />
+       <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} /></main>
       </div>
     );
   }

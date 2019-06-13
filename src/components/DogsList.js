@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import superagent from 'superagent'
+import { Link } from 'react-router-dom'
+
 
 export default class DogsList extends Component {
 
@@ -21,7 +23,10 @@ export default class DogsList extends Component {
     
     dataDisplay(){
         if(this.state.dogBreeds !== null){
-           return (<ul>{this.state.dogBreeds.map(breed => <li key={breed}>{breed}</li>)}</ul>)
+           return (<ul>{this.state.dogBreeds.map(breed => 
+           <li key={breed}>
+            <Link to={ `/dog-breeds/${breed}` }>{breed}</Link>
+          </li>)}</ul>)
         }
         else {return null}   
     }
